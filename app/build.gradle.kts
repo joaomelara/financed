@@ -50,9 +50,6 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     implementation(libs.androidx.compose.material3)
-    implementation("com.mikepenz:iconics-core:5.4.0")
-    implementation("com.mikepenz:fontawesome-typeface:5.9.0.2-kotlin@aar")
-    implementation ("com.mikepenz:iconics-compose:5.4.0")
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -60,4 +57,13 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    //Dependência FontAwesome
+    implementation("com.mikepenz:iconics-core:5.4.0")
+    implementation("com.mikepenz:fontawesome-typeface:5.9.0.2-kotlin@aar")
+    implementation ("com.mikepenz:iconics-compose:5.4.0")
+
+    // Dependência do Navigation
+    implementation ("𝗮𝗻𝗱𝗿𝗼𝗶𝗱𝘅.𝗻𝗮𝘃𝗶𝗴𝗮𝘁𝗶𝗼𝗻:𝗻𝗮𝘃𝗶𝗴𝗮𝘁𝗶𝗼𝗻-𝗰𝗼𝗺𝗽𝗼𝘀𝗲:𝟮.𝟲.𝟬")
+
 }
