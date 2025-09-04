@@ -23,11 +23,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.mikepenz.iconics.compose.Image
 import com.mikepenz.iconics.typeface.library.fontawesome.FontAwesome
 
 @Composable
-fun InputLogin() {
+fun InputLogin(navController: NavController) {
     Surface(
         modifier = Modifier.fillMaxSize(),
         color = MaterialTheme.colorScheme.background
@@ -58,7 +59,26 @@ fun InputLogin() {
                 onValueChange = { novoValor ->
                     email.value = novoValor
                 },
-                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
+                placeholder = {
+                    Text(text = "Seu email")
+                },
+                colors = TextFieldDefaults.colors(
+                    focusedTextColor = Color.White,
+                    unfocusedTextColor = Color.Green,
+                    unfocusedPlaceholderColor = Color.Magenta
+                )
+            )
+
+            Spacer(modifier = Modifier.height(20.dp))
+
+            // Subtitle
+            TextField(
+                value = "${email.value}",
+                onValueChange = { novoValor ->
+                    email.value = novoValor
+                },
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
                 placeholder = {
                     Text(text = "Seu email")
                 },

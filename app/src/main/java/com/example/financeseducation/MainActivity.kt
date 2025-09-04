@@ -27,19 +27,11 @@ class MainActivity : ComponentActivity() {
                         navController = navController,
                         startDestination = "login"
                     ) {
-                        composable(route = "login") { LoginScreen() }
-                        composable(route = "inputLogin") { InputLogin() }
+                        composable(route = "login") { LoginScreen(navController) }
+                        composable(route = "inputLogin") { InputLogin(navController) }
                     }
                 }
             }
         }
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    FinancesEducationTheme {
-        LoginScreen()
     }
 }
