@@ -47,6 +47,7 @@ fun Converter(navController: NavController) {
                 color = MaterialTheme.colorScheme.primary
             )
 
+            Spacer(modifier = Modifier.height(60.dp))
 
         }
         Column(

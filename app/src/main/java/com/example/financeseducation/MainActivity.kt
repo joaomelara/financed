@@ -4,9 +4,11 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.financeseducation.database.repository.UsersRepository
 import com.example.financeseducation.ui.theme.FinancesEducationTheme
 
 import com.example.financeseducation.screens.LoginScreen
@@ -21,10 +23,27 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             FinancesEducationTheme {
+                val context = LocalContext.current
+                val usersRepository = UsersRepository(context)
+                var destination = ""
+
+                try {
+                    if(!usersRepository.showName().toString().isNotEmpty()) {
+                        destination = "Perfil"
+                    } else {
+                        destination = "login"
+                    }
+                } catch (t: Throwable) {
+                    println(t)
+                    destination = "login"
+                }
+
+                println(destination)
+
                 val navController = rememberNavController()
                 NavHost(
                     navController = navController,
-                    startDestination = "login"
+                    startDestination = destination
                 ) {
                     composable(route = "login") { LoginScreen(navController) }
                     composable(route = "inputLogin") { InputLogin(navController) }
