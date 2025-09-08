@@ -28,17 +28,15 @@ class MainActivity : ComponentActivity() {
                 var destination = ""
 
                 try {
-                    if(!usersRepository.showName().toString().isNotEmpty()) {
-                        destination = "Perfil"
+                    destination = if(usersRepository.showName().toString().isNotEmpty()) {
+                        "Perfil"
                     } else {
-                        destination = "login"
+                        "login"
                     }
                 } catch (t: Throwable) {
                     println(t)
                     destination = "login"
                 }
-
-                println(destination)
 
                 val navController = rememberNavController()
                 NavHost(
