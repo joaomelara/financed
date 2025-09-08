@@ -19,11 +19,15 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.example.financeseducation.database.dao.UsersDb
+import com.example.financeseducation.database.repository.UsersRepository
+import com.example.financeseducation.model.Users
 import com.mikepenz.iconics.compose.Image
 import com.mikepenz.iconics.typeface.library.fontawesome.FontAwesome
 
@@ -40,9 +44,14 @@ fun InputLogin(navController: NavController) {
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
-            var email = remember {
+            val context = LocalContext.current
+            val usersRepository = UsersRepository(context)
+            var errorMessage = remember { mutableStateOf("") }
+
+            var nome = remember {
                 mutableStateOf("")
             }
+
             // Title
             Text(
                 text = "Login",
@@ -51,49 +60,46 @@ fun InputLogin(navController: NavController) {
                 color = MaterialTheme.colorScheme.primary
             )
 
-            Spacer(modifier = Modifier.height(10.dp))
+            Spacer(modifier = Modifier.height(50.dp))
 
             // Subtitle
             TextField(
-                value = "${email.value}",
+                value = nome.value,
                 onValueChange = { novoValor ->
-                    email.value = novoValor
+                    nome.value = novoValor
+                    errorMessage.value = "" // Clear error message on input change
                 },
-                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
                 placeholder = {
-                    Text(text = "Seu email")
+                    Text(text = "Seu nome")
                 },
                 colors = TextFieldDefaults.colors(
-                    focusedTextColor = Color.White,
-                    unfocusedTextColor = Color.Green,
-                    unfocusedPlaceholderColor = Color.Magenta
+                    focusedTextColor = MaterialTheme.colorScheme.onBackground,
+                    unfocusedTextColor = MaterialTheme.colorScheme.onBackground,
+                    unfocusedPlaceholderColor = MaterialTheme.colorScheme.onBackground,
                 )
             )
 
-            Spacer(modifier = Modifier.height(20.dp))
-
-            // Subtitle
-            TextField(
-                value = "${email.value}",
-                onValueChange = { novoValor ->
-                    email.value = novoValor
-                },
-                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
-                placeholder = {
-                    Text(text = "Seu email")
-                },
-                colors = TextFieldDefaults.colors(
-                    focusedTextColor = Color.White,
-                    unfocusedTextColor = Color.Green,
-                    unfocusedPlaceholderColor = Color.Magenta
+            if (errorMessage.value.isNotEmpty()) {
+                Text(
+                    text = errorMessage.value,
+                    color = MaterialTheme.colorScheme.error,
+                    style = MaterialTheme.typography.bodySmall
                 )
-            )
+            }
 
             Spacer(modifier = Modifier.height(50.dp))
 
             // Login Button
             Button(
-                onClick = { /* Handle login */ },
+                onClick = {
+                    if (nome.value.isBlank()) {
+                        errorMessage.value = "Por favor, insira seu nome." // Set error message
+                    } else {
+                        val users = Users(nome = nome.value)
+                        usersRepository.save(users)
+                        navController.navigate("profile") // Navigate to profile screen
+                    }
+                },
                 modifier = Modifier.fillMaxWidth(),
                 colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.primary)
             ) {
@@ -104,7 +110,7 @@ fun InputLogin(navController: NavController) {
 
             // Registration Button
             Button(
-                onClick = { /* Handle registration */ },
+                onClick = { navController.navigate("login") },
                 modifier = Modifier.fillMaxWidth(),
                 colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.secondary),
             ) {
