@@ -33,13 +33,19 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.financeseducation.components.NavBar
+import com.example.financeseducation.models.Currency
+import com.example.financeseducation.services.CurrencyService
+import com.example.financeseducation.services.RetrofitFactory
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 @OptIn(androidx.compose.material3.ExperimentalMaterial3Api::class)
 @Composable
 fun Converter(navController: NavController) {
     val currencies = listOf("USD", "BRL", "EUR")
 
-// Prefer delegated state for simplicity
     var topAmount by rememberSaveable { mutableStateOf("") }
     var topCurrency by rememberSaveable { mutableStateOf(currencies[0]) }
     var topExpanded by remember { mutableStateOf(false) }
@@ -49,6 +55,9 @@ fun Converter(navController: NavController) {
     var bottomExpanded by remember { mutableStateOf(false) }
 
     val canConvert = topAmount.isNotBlank() && topCurrency != bottomCurrency
+
+    // Use your RetrofitFactory to get the service
+    val currencyService: CurrencyService = RetrofitFactory().getCurrencyService()
 
     Surface(
         modifier = Modifier.fillMaxSize(),
@@ -112,7 +121,6 @@ fun Converter(navController: NavController) {
                             DropdownMenuItem(
                                 text = { Text(selection) },
                                 onClick = {
-                                    // ignore selection if it would make both currencies equal
                                     if (selection != bottomCurrency) {
                                         topCurrency = selection
                                     } else {
@@ -170,7 +178,6 @@ fun Converter(navController: NavController) {
                             DropdownMenuItem(
                                 text = { Text(selection) },
                                 onClick = {
-                                    // ignore selection if it would make both currencies equal
                                     if (selection != topCurrency) {
                                         bottomCurrency = selection
                                     } else {
@@ -188,9 +195,36 @@ fun Converter(navController: NavController) {
             Spacer(modifier = Modifier.height(16.dp))
 
             Button(onClick = {
+                if (!canConvert) return@Button
 
+                CoroutineScope(Dispatchers.IO).launch {
+                    try {
+                        val normalized = topAmount.replace(',', '.')
+                        val amount = normalized.toDoubleOrNull()
+                        if (amount == null) {
+                            withContext(Dispatchers.Main) { bottomAmount = "" }
+                            return@launch
+                        }
 
+                        val resp: Currency = currencyService.getCurrency(topCurrency)
+                        val rate = resp.rates?.get(bottomCurrency)
 
+                        withContext(Dispatchers.Main) {
+                            if (rate != null) {
+                                val converted = amount * rate
+                                bottomAmount = String.format("%.2f", converted)
+                            } else {
+                                bottomAmount = ""
+                                println("errror1")
+                                println(resp)
+                            }
+                        }
+                    } catch (e: Exception) {
+                        withContext(Dispatchers.Main) {
+                            bottomAmount = ""
+                        }
+                    }
+                }
             }) {
                 Text("Converter")
             }
@@ -203,5 +237,4 @@ fun Converter(navController: NavController) {
             NavBar(navController)
         }
     }
-
 }
