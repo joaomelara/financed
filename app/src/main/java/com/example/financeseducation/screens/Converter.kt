@@ -226,7 +226,7 @@ fun Converter(navController: NavController) {
                     }
                 }
             }) {
-                Text(fontSize =  18.sp,text = "Converter")
+                Text(fontSize =  18.sp, modifier = Modifier.padding(vertical = 6.dp) ,text = "Converter")
             }
         }
 
