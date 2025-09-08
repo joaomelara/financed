@@ -11,9 +11,7 @@ import com.example.financeseducation.ui.theme.FinancesEducationTheme
 
 import com.example.financeseducation.screens.LoginScreen
 import com.example.financeseducation.screens.InputLogin
-import com.example.financeseducation.screens.Map
 import com.example.financeseducation.screens.Profile
-import com.example.financeseducation.screens.Converter
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,9 +26,7 @@ class MainActivity : ComponentActivity() {
                 ) {
                     composable(route = "login") { LoginScreen(navController) }
                     composable(route = "inputLogin") { InputLogin(navController) }
-                    composable(route = "Perfil") { Profile(navController) }
-                    composable(route = "Conversor") { Converter(navController) }
-                    composable(route = "Aprender") { Map(navController) }
+                    composable(route = "Profile") { Profile(navController) }
                 }
             }
         }
