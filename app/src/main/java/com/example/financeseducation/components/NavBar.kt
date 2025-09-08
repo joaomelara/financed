@@ -24,9 +24,9 @@ fun NavBar(navController: NavController) {
     Row(modifier = Modifier
         .fillMaxWidth()
         .height(90.dp)) {
-        NavItem("Profile", modifier = Modifier.weight(1f), navController)
-        NavItem("Converter", modifier = Modifier.weight(1f), navController)
-        NavItem("Map", modifier = Modifier.weight(1f), navController)
+        NavItem("Perfil", modifier = Modifier.weight(1f), navController)
+        NavItem("Conversor", modifier = Modifier.weight(1f), navController)
+        NavItem("Aprender", modifier = Modifier.weight(1f), navController)
     }
 }
 

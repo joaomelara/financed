@@ -27,7 +27,7 @@ import com.mikepenz.iconics.compose.Image
 import com.mikepenz.iconics.typeface.library.fontawesome.FontAwesome
 
 @Composable
-fun Profile(navController: NavController) {
+fun Map(navController: NavController) {
 
     Surface(
         modifier = Modifier.fillMaxSize(),
@@ -39,12 +39,9 @@ fun Profile(navController: NavController) {
                 .padding(16.dp, 70.dp, 16.dp, 110.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            val context = LocalContext.current
-            val usersRepository = UsersRepository(context)
-            val name = usersRepository.showName().nome
 
             Image(
-                FontAwesome.Icon.faw_user_circle1,
+                FontAwesome.Icon.faw_adjust,
                 colorFilter = ColorFilter.tint(MaterialTheme.colorScheme.primary),
                 modifier = Modifier.size(100.dp)
             )
@@ -52,7 +49,7 @@ fun Profile(navController: NavController) {
             Spacer(modifier = Modifier.height(20.dp))
 
             Text(
-                text = "Olá, ${name}",
+                text = "Conversor",
                 fontSize = 28.sp,
                 fontWeight = FontWeight.Bold,
                 color = MaterialTheme.colorScheme.primary
