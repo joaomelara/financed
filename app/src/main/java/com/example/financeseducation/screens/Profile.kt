@@ -49,7 +49,7 @@ fun Profile(navController: NavController) {
                 modifier = Modifier.size(100.dp)
             )
 
-            Spacer(modifier = Modifier.height(20.dp))
+            Spacer(modifier = Modifier.height(25.dp))
 
             Text(
                 text = "Olá, ${name}",

@@ -40,16 +40,8 @@ fun Map(navController: NavController) {
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
 
-            Image(
-                FontAwesome.Icon.faw_adjust,
-                colorFilter = ColorFilter.tint(MaterialTheme.colorScheme.primary),
-                modifier = Modifier.size(100.dp)
-            )
-
-            Spacer(modifier = Modifier.height(20.dp))
-
             Text(
-                text = "Conversor",
+                text = "Aprender",
                 fontSize = 28.sp,
                 fontWeight = FontWeight.Bold,
                 color = MaterialTheme.colorScheme.primary
