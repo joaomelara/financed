@@ -2,7 +2,7 @@ package com.example.financeseducation.utils
 
 import android.content.Context
 import com.example.financeseducation.R
-import com.example.financeseducation.model.Lesson
+import com.example.financeseducation.models.Lesson
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 

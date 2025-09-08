@@ -17,7 +17,6 @@ import com.example.financeseducation.screens.InputLogin
 import com.example.financeseducation.screens.LessonDetailScreen
 import com.example.financeseducation.screens.TrackScreen
 import com.example.financeseducation.utils.loadLessons
-import com.example.financeseducation.screens.Map
 import com.example.financeseducation.screens.Profile
 import com.example.financeseducation.screens.Converter
 
@@ -56,10 +55,9 @@ class MainActivity : ComponentActivity() {
                     composable(route = "inputLogin") { InputLogin(navController) }
                     composable(route = "Perfil") { Profile(navController) }
                     composable(route = "Conversor") { Converter(navController) }
-                    composable(route = "Aprender") { Map(navController) }
                     
                     // TrackScreen showing the list
-                        composable(route = "trackScreen") {
+                        composable(route = "Aprender") {
                             TrackScreen(navController, lessons)
                         }
 

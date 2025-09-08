@@ -17,7 +17,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.financeseducation.R
-import com.example.financeseducation.model.Lesson
+import com.example.financeseducation.models.Lesson
 import com.mikepenz.iconics.compose.Image
 import com.mikepenz.iconics.typeface.library.fontawesome.FontAwesome
 
@@ -36,7 +36,7 @@ fun LessonDetailScreen(lesson: Lesson, navController: NavController) {
                 .fillMaxWidth()
                 .wrapContentHeight()
                 .background(
-                    color = colorResource(id = R.color.blue_project),
+                    color = MaterialTheme.colorScheme.primary,
                     shape = RoundedCornerShape(bottomStart = 15.dp, bottomEnd = 15.dp)
                 )
                 .padding(bottom = 24.dp)
@@ -83,8 +83,8 @@ fun LessonDetailScreen(lesson: Lesson, navController: NavController) {
         Spacer(modifier = Modifier.height(24.dp))
 
         Button(
-            onClick = { navController.navigate("trackScreen") },
-            colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.blue_project)),
+            onClick = { navController.navigate("Aprender") },
+            colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.primary),
             modifier = Modifier
                 .fillMaxWidth(0.6f)
                 .height(56.dp)

@@ -1,4 +1,4 @@
-package com.example.financeseducation.model
+package com.example.financeseducation.models
 
 data class Lesson(
     val id: Int,
