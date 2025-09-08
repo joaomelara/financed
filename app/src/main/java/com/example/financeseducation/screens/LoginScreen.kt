@@ -67,19 +67,9 @@ fun LoginScreen(navController: NavController) {
                 modifier = Modifier.fillMaxWidth(),
                 colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.primary)
             ) {
-                Text(text = "Login", color = MaterialTheme.colorScheme.onPrimary, modifier = Modifier.padding(8.dp))
+                Text(text = "Começar", color = MaterialTheme.colorScheme.onPrimary, modifier = Modifier.padding(8.dp))
             }
 
-            Spacer(modifier = Modifier.height(20.dp))
-
-            // Registration Button
-            Button(
-                onClick = { /* Handle registration */ },
-                modifier = Modifier.fillMaxWidth(),
-                colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.secondary),
-            ) {
-                Text(text = "Cadastro", color = MaterialTheme.colorScheme.onSecondary, modifier = Modifier.padding(8.dp))
-            }
 
             /*Spacer(modifier = Modifier.height(50.dp))
 
