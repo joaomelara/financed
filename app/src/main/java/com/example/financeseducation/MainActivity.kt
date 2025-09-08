@@ -4,14 +4,18 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.platform.LocalContext
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import com.example.financeseducation.database.repository.UsersRepository
 import com.example.financeseducation.ui.theme.FinancesEducationTheme
+
+import com.example.financeseducation.screens.LoginScreen
+import com.example.financeseducation.screens.InputLogin
+import com.example.financeseducation.screens.Map
+import com.example.financeseducation.screens.Profile
+import com.example.financeseducation.screens.Converter
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,29 +23,33 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             FinancesEducationTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
+                val context = LocalContext.current
+                val usersRepository = UsersRepository(context)
+                var destination = ""
+
+                try {
+                    destination = if(usersRepository.showName().toString().isNotEmpty()) {
+                        "Perfil"
+                    } else {
+                        "login"
+                    }
+                } catch (t: Throwable) {
+                    println(t)
+                    destination = "login"
+                }
+
+                val navController = rememberNavController()
+                NavHost(
+                    navController = navController,
+                    startDestination = destination
+                ) {
+                    composable(route = "login") { LoginScreen(navController) }
+                    composable(route = "inputLogin") { InputLogin(navController) }
+                    composable(route = "Perfil") { Profile(navController) }
+                    composable(route = "Conversor") { Converter(navController) }
+                    composable(route = "Aprender") { Map(navController) }
                 }
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    FinancesEducationTheme {
-        Greeting("Android")
     }
 }
