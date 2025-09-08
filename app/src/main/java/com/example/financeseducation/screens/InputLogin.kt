@@ -90,7 +90,7 @@ fun InputLogin(navController: NavController) {
                     } else {
                         val users = Users(nome = nome.value)
                         usersRepository.save(users)
-                        navController.navigate("profile") // Navigate to profile screen
+                        navController.navigate("Perfil") // Navigate to profile screen
                     }
                 },
                 modifier = Modifier.fillMaxWidth(),
