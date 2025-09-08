@@ -36,7 +36,7 @@ fun Map(navController: NavController) {
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(16.dp, 70.dp, 16.dp, 110.dp),
+                .padding(16.dp, 70.dp, 16.dp, 115.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
 

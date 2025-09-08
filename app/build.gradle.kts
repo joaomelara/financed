@@ -64,14 +64,18 @@ dependencies {
     // FontAwesome
     implementation("com.mikepenz:iconics-core:5.4.0")
     implementation("com.mikepenz:fontawesome-typeface:5.9.0.2-kotlin@aar")
-    implementation ("com.mikepenz:iconics-compose:5.4.0")
+    implementation("com.mikepenz:iconics-compose:5.4.0")
 
     // Navigation
-    implementation ("androidx.navigation:navigation-compose:2.6.0")
+    implementation("androidx.navigation:navigation-compose:2.6.0")
 
     // Room
-    implementation ("androidx.room:room-runtime:2.5.2")
-    annotationProcessor ("androidx.room:room-compiler:2.5.2")
-    kapt ("androidx.room:room-compiler:2.5.2")
+    implementation("androidx.room:room-runtime:2.5.2")
+    annotationProcessor("androidx.room:room-compiler:2.5.2")
+    kapt("androidx.room:room-compiler:2.5.2")
+
+    // Retrofit
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
 
 }

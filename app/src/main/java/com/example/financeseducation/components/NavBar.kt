@@ -30,8 +30,9 @@ import com.mikepenz.iconics.typeface.library.fontawesome.FontAwesome
 fun NavBar(navController: NavController) {
     Row(modifier = Modifier
         .fillMaxWidth()
-        .height(90.dp)
+        .height(100.dp)
         .padding(bottom = 5.dp)
+        .background(MaterialTheme.colorScheme.surfaceContainer )
     ) {
         NavItem("Perfil", modifier = Modifier.weight(1f), navController)
         NavItem("Conversor", modifier = Modifier.weight(1f), navController)
@@ -62,7 +63,8 @@ fun NavItem(label: String, modifier: Modifier = Modifier, navController: NavCont
 
         Text(
             fontSize = 15.sp,
-            text = label
+            text = label,
+            color = MaterialTheme.colorScheme.onSurface
         )
 
     }
