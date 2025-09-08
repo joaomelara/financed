@@ -21,35 +21,21 @@ import androidx.navigation.NavController
 
 @Composable
 fun NavBar(navController: NavController) {
-    Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(90.dp)
-            .background(color = MaterialTheme.colorScheme.surfaceBright)
-    ) {
-        NavItem(
-            label = "Profile",
-            onClick = { navController.navigate("profile") }
-        )
-        NavItem(
-            label = "Converter",
-            onClick = { navController.navigate("converter") }
-        )
-        NavItem(
-            label = "Learn",
-            onClick = { navController.navigate("learn") }
-        )
+    Row(modifier = Modifier
+        .fillMaxWidth()
+        .height(90.dp)) {
+        NavItem("Profile", modifier = Modifier.weight(1f), navController)
+        NavItem("Converter", modifier = Modifier.weight(1f), navController)
+        NavItem("Map", modifier = Modifier.weight(1f), navController)
     }
-
 }
 
 @Composable
-private fun NavItem(label: String, onClick: () -> Unit) {
+fun NavItem(label: String, modifier: Modifier = Modifier, navController: NavController) {
     Box(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxHeight()
-            .clickable(onClick = onClick)
-            .padding(5.dp),
+            .clickable { navController.navigate(label) },
         contentAlignment = Alignment.Center
     ) {
         Text(text = label)

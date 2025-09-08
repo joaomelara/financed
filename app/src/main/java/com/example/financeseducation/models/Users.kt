@@ -1,4 +1,4 @@
-package com.example.financeseducation.model
+package com.example.financeseducation.models
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

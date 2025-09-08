@@ -2,7 +2,7 @@ package com.example.financeseducation.database.repository
 
 import android.content.Context
 import com.example.financeseducation.database.dao.UsersDb
-import com.example.financeseducation.model.Users
+import com.example.financeseducation.models.Users
 
 class UsersRepository(context: Context) {
 

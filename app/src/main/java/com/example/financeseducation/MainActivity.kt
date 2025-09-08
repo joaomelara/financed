@@ -26,7 +26,7 @@ class MainActivity : ComponentActivity() {
                 ) {
                     composable(route = "login") { LoginScreen(navController) }
                     composable(route = "inputLogin") { InputLogin(navController) }
-                    composable(route = "profile") { Profile(navController) }
+                    composable(route = "Profile") { Profile(navController) }
                 }
             }
         }

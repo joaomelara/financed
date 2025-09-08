@@ -3,7 +3,7 @@ package com.example.financeseducation.database.dao
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
-import com.example.financeseducation.model.Users
+import com.example.financeseducation.models.Users
 
 @Dao
 interface UsersDao {

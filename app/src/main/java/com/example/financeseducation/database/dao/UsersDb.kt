@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.financeseducation.model.Users
+import com.example.financeseducation.models.Users
 
 @Database([Users::class], version = 1)
 abstract class UsersDb: RoomDatabase() {
