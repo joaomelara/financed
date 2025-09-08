@@ -2,36 +2,43 @@
   {
     "id": 0,
     "name": "Introdução às Finanças",
-    "description": "Aprenda os conceitos básicos de finanças pessoais."
+    "description": "Aprenda os conceitos básicos de finanças pessoais.",
+    "explanation": "A introdução às finanças é o primeiro passo para entender como o dinheiro circula na sua vida. Esse tema aborda noções essenciais como renda, despesas, orçamento e planejamento financeiro, ajudando você a compreender a importância de cuidar das próprias finanças. O objetivo é criar uma base sólida para que, ao longo do tempo, seja possível tomar decisões financeiras mais conscientes e evitar erros comuns que podem comprometer sua estabilidade econômica."
   },
   {
     "id": 1,
     "name": "Orçamento",
-    "description": "Como organizar suas receitas e despesas."
+    "description": "Como organizar suas receitas e despesas.",
+    "explanation": "O orçamento pessoal é uma ferramenta fundamental para controlar sua vida financeira. Ele consiste em planejar e acompanhar a entrada e saída de dinheiro, permitindo que você tenha clareza sobre onde gasta mais e onde pode economizar. Ter um orçamento bem estruturado ajuda a evitar dívidas desnecessárias, facilita o alcance de metas financeiras e garante maior tranquilidade no dia a dia, pois você sempre saberá quanto pode gastar sem comprometer o futuro."
   },
   {
     "id": 2,
     "name": "Poupança",
-    "description": "Entenda a importância de guardar dinheiro e criar reservas."
+    "description": "Entenda a importância de guardar dinheiro e criar reservas.",
+    "explanation": "A poupança é o hábito de reservar uma parte do dinheiro que você recebe para ser usado no futuro. Esse tema destaca a importância de formar uma reserva de emergência para lidar com imprevistos, como problemas de saúde, reparos na casa ou perda de emprego. Além disso, poupar também permite que você conquiste objetivos de curto e médio prazo, como uma viagem ou a compra de um bem. Guardar dinheiro regularmente, mesmo em pequenas quantias, cria disciplina e contribui para a segurança financeira."
   },
   {
     "id": 3,
     "name": "Investimentos",
-    "description": "Descubra opções de investimento e como fazê-las de forma segura."
+    "description": "Descubra opções de investimento e como fazê-las de forma segura.",
+    "explanation": "Investir significa fazer o seu dinheiro trabalhar para você, gerando rendimentos ao longo do tempo. Esse tema apresenta os principais tipos de investimento, como renda fixa, fundos, ações e outros, explicando seus riscos e potenciais de retorno. A ideia é mostrar que investir não é apenas para especialistas ou pessoas ricas, mas sim uma ferramenta acessível para quem deseja multiplicar seus recursos e conquistar metas de longo prazo, como a aposentadoria ou a compra de uma casa."
   },
   {
     "id": 4,
     "name": "Crédito e Dívidas",
-    "description": "Aprenda a usar o crédito de forma consciente e lidar com dívidas."
+    "description": "Aprenda a usar o crédito de forma consciente e lidar com dívidas.",
+    "explanation": "O crédito pode ser um grande aliado, mas também um perigo quando mal administrado. Esse tema explica como funciona o uso de cartões de crédito, empréstimos e financiamentos, destacando boas práticas para não cair no endividamento excessivo. Além disso, aborda estratégias para quitar dívidas já existentes, como renegociação e priorização dos débitos. O objetivo é mostrar que é possível usar o crédito de forma inteligente para atingir objetivos, mas sempre com planejamento e controle."
   },
   {
     "id": 5,
     "name": "Planejamento Financeiro",
-    "description": "Defina metas financeiras e crie estratégias para alcançá-las."
+    "description": "Defina metas financeiras e crie estratégias para alcançá-las.",
+    "explanation": "Planejamento financeiro é o processo de definir objetivos claros para o uso do seu dinheiro e traçar um caminho para alcançá-los. Isso inclui desde metas de curto prazo, como quitar dívidas, até objetivos maiores, como garantir uma aposentadoria tranquila. Esse tema mostra a importância de alinhar seus hábitos de consumo com seus sonhos, usando ferramentas como orçamento, poupança e investimentos. Com um bom planejamento, você ganha maior segurança e clareza sobre suas escolhas financeiras."
   },
   {
     "id": 6,
     "name": "Educação Financeira no Dia a Dia",
-    "description": "Aplicando boas práticas financeiras na sua rotina."
+    "description": "Aplicando boas práticas financeiras na sua rotina.",
+    "explanation": "A educação financeira no dia a dia significa aplicar conceitos básicos de forma prática na sua rotina. Esse tema traz dicas sobre como economizar em pequenas escolhas, evitar compras por impulso, comparar preços e tomar decisões mais conscientes. Também destaca a importância de manter hábitos consistentes, como revisar gastos regularmente e buscar sempre aprender mais sobre finanças. Quando aplicada no cotidiano, a educação financeira se torna um estilo de vida que garante equilíbrio e maior qualidade de vida."
   }
 ]

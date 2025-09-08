@@ -118,12 +118,10 @@ fun TrackScreen(navController: NavController, lessons: List<Lesson>) {
                             horizontalArrangement = Arrangement.End
                         ) {
                             Button(
-                                onClick = { /* no action for now */ },
-                                colors = ButtonDefaults.buttonColors(
-                                    containerColor = colorResource(id = R.color.blue_project)
-                                )
+                                onClick = { navController.navigate("lesson/${lesson.id}") },
+                                colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.blue_project))
                             ) {
-                                Text(text = "Go", color = Color.White)
+                                Text("Go", color = Color.White)
                             }
                         }
                     }

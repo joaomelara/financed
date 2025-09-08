@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -12,8 +13,9 @@ import com.example.financeseducation.ui.theme.FinancesEducationTheme
 
 import com.example.financeseducation.screens.LoginScreen
 import com.example.financeseducation.screens.InputLogin
+import com.example.financeseducation.screens.LessonDetailScreen
 import com.example.financeseducation.screens.TrackScreen
-import com.example.financeseducation.utils.loadLessons // importa a função que carrega JSON
+import com.example.financeseducation.utils.loadLessons
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,11 +36,24 @@ class MainActivity : ComponentActivity() {
                     ) {
                         composable(route = "login") { LoginScreen(navController) }
                         composable(route = "inputLogin") { InputLogin(navController) }
-                        // Passar a lista de lessons para a tela
+
+                        // TrackScreen showing the list
                         composable(route = "trackScreen") {
                             TrackScreen(navController, lessons)
                         }
+
+                        composable(route = "lesson/{lessonId}") { backStackEntry ->
+                            val lessonId = backStackEntry.arguments?.getString("lessonId")?.toIntOrNull()
+                            val lesson = lessons.find { it.id == lessonId }
+                            if (lesson != null) {
+                                LessonDetailScreen(lesson = lesson, navController = navController)
+                            } else {
+                                // Optional: handle lesson not found
+                                Text("Lesson not found")
+                            }
+                        }
                     }
+
                 }
             }
         }
