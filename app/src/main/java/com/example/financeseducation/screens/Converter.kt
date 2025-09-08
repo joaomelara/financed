@@ -44,7 +44,7 @@ import kotlinx.coroutines.withContext
 @OptIn(androidx.compose.material3.ExperimentalMaterial3Api::class)
 @Composable
 fun Converter(navController: NavController) {
-    val currencies = listOf("USD", "BRL", "EUR")
+    val currencies = listOf("USD", "BRL", "EUR", "CNY", "JPY", "GBP", "AOA", "ARS")
 
     var topAmount by rememberSaveable { mutableStateOf("") }
     var topCurrency by rememberSaveable { mutableStateOf(currencies[0]) }
@@ -192,9 +192,11 @@ fun Converter(navController: NavController) {
                 }
             }
 
-            Spacer(modifier = Modifier.height(16.dp))
+            Spacer(modifier = Modifier.height(60.dp))
 
-            Button(onClick = {
+            Button(
+                modifier = Modifier.fillMaxWidth(),
+                onClick = {
                 if (!canConvert) return@Button
 
                 CoroutineScope(Dispatchers.IO).launch {
@@ -215,8 +217,6 @@ fun Converter(navController: NavController) {
                                 bottomAmount = String.format("%.2f", converted)
                             } else {
                                 bottomAmount = ""
-                                println("errror1")
-                                println(resp)
                             }
                         }
                     } catch (e: Exception) {
@@ -226,7 +226,7 @@ fun Converter(navController: NavController) {
                     }
                 }
             }) {
-                Text("Converter")
+                Text(fontSize =  18.sp,text = "Converter")
             }
         }
 
