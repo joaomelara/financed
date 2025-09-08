@@ -67,4 +67,8 @@ dependencies {
     // Dependência do Navigation
     implementation ("androidx.navigation:navigation-compose:2.6.0")
 
+    //dependencia gson
+    implementation("com.google.code.gson:gson:2.11.0")
+
+
 }

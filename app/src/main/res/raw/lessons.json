@@ -1,0 +1,37 @@
+[
+  {
+    "id": 0,
+    "name": "Introdução às Finanças",
+    "description": "Aprenda os conceitos básicos de finanças pessoais."
+  },
+  {
+    "id": 1,
+    "name": "Orçamento",
+    "description": "Como organizar suas receitas e despesas."
+  },
+  {
+    "id": 2,
+    "name": "Poupança",
+    "description": "Entenda a importância de guardar dinheiro e criar reservas."
+  },
+  {
+    "id": 3,
+    "name": "Investimentos",
+    "description": "Descubra opções de investimento e como fazê-las de forma segura."
+  },
+  {
+    "id": 4,
+    "name": "Crédito e Dívidas",
+    "description": "Aprenda a usar o crédito de forma consciente e lidar com dívidas."
+  },
+  {
+    "id": 5,
+    "name": "Planejamento Financeiro",
+    "description": "Defina metas financeiras e crie estratégias para alcançá-las."
+  },
+  {
+    "id": 6,
+    "name": "Educação Financeira no Dia a Dia",
+    "description": "Aplicando boas práticas financeiras na sua rotina."
+  }
+]
