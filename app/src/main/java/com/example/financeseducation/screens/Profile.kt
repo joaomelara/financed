@@ -16,11 +16,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.financeseducation.components.NavBar
+import com.example.financeseducation.database.repository.UsersRepository
 import com.mikepenz.iconics.compose.Image
 import com.mikepenz.iconics.typeface.library.fontawesome.FontAwesome
 
@@ -37,6 +39,10 @@ fun Profile(navController: NavController) {
                 .padding(16.dp, 70.dp, 16.dp, 16.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
+            val context = LocalContext.current
+            val usersRepository = UsersRepository(context)
+            val name = usersRepository.showName().nome
+
             Image(
                 FontAwesome.Icon.faw_user_circle1,
                 colorFilter = ColorFilter.tint(MaterialTheme.colorScheme.primary),
@@ -46,12 +52,11 @@ fun Profile(navController: NavController) {
             Spacer(modifier = Modifier.height(20.dp))
 
             Text(
-                text = "Username",
+                text = "Olá, ${name}",
                 fontSize = 28.sp,
                 fontWeight = FontWeight.Bold,
                 color = MaterialTheme.colorScheme.primary
             )
-
 
 
         }

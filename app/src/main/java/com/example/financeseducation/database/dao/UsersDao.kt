@@ -11,7 +11,7 @@ interface UsersDao {
     @Insert
     fun save(users: Users): Long
 
-    @Query("SELECT * FROM tbl_users LIMIT 1")
+    @Query("SELECT * FROM tbl_users ORDER BY createdAt DESC LIMIT 1")
     fun showName(): Users
 
 }
