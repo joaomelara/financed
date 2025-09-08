@@ -32,7 +32,7 @@ fun NavBar(navController: NavController) {
         .fillMaxWidth()
         .height(100.dp)
         .padding(bottom = 5.dp)
-        .background(MaterialTheme.colorScheme.surfaceContainer )
+        .background(MaterialTheme.colorScheme.surfaceContainerLow )
     ) {
         NavItem("Perfil", modifier = Modifier.weight(1f), navController)
         NavItem("Conversor", modifier = Modifier.weight(1f), navController)
