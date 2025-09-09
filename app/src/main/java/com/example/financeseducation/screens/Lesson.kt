@@ -26,7 +26,8 @@ fun LessonDetailScreen(lesson: Lesson, navController: NavController) {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .verticalScroll(rememberScrollState()), // torna tudo rolável
+            .verticalScroll(rememberScrollState())
+            .background(MaterialTheme.colorScheme.background), // torna tudo rolável
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         // Header
@@ -43,7 +44,7 @@ fun LessonDetailScreen(lesson: Lesson, navController: NavController) {
         ) {
             Image(
                 FontAwesome.Icon.faw_feather,
-                colorFilter = ColorFilter.tint(Color.White),
+                colorFilter = ColorFilter.tint(MaterialTheme.colorScheme.onPrimary),
                 modifier = Modifier
                     .size(115.dp, 100.dp)
                     .padding(top = 32.dp)
@@ -53,7 +54,7 @@ fun LessonDetailScreen(lesson: Lesson, navController: NavController) {
                 text = lesson.name,
                 style = MaterialTheme.typography.headlineMedium,
                 fontWeight = FontWeight.Bold,
-                color = Color.White,
+                color = MaterialTheme.colorScheme.onPrimary,
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(top = 16.dp),
@@ -65,7 +66,7 @@ fun LessonDetailScreen(lesson: Lesson, navController: NavController) {
             Text(
                 text = lesson.description,
                 style = MaterialTheme.typography.bodyLarge,
-                color = Color.White,
+                color = MaterialTheme.colorScheme.onPrimary,
                 modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
                 textAlign = TextAlign.Center
             )
@@ -77,7 +78,8 @@ fun LessonDetailScreen(lesson: Lesson, navController: NavController) {
             text = lesson.explanation,
             style = MaterialTheme.typography.bodyLarge,
             modifier = Modifier.padding(16.dp),
-            textAlign = TextAlign.Justify
+            textAlign = TextAlign.Justify,
+            color = MaterialTheme.colorScheme.onBackground
         )
 
         Spacer(modifier = Modifier.height(24.dp))
@@ -86,10 +88,10 @@ fun LessonDetailScreen(lesson: Lesson, navController: NavController) {
             onClick = { navController.navigate("Aprender") },
             colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.primary),
             modifier = Modifier
-                .fillMaxWidth(0.6f)
+                .fillMaxWidth(0.8f)
                 .height(56.dp)
         ) {
-            Text("Back", color = Color.White, style = MaterialTheme.typography.titleMedium)
+            Text("Voltar", color = MaterialTheme.colorScheme.onPrimary, style = MaterialTheme.typography.titleMedium)
         }
 
         Spacer(modifier = Modifier.height(24.dp))

@@ -53,7 +53,7 @@ fun TrackScreen(navController: NavController, lessons: List<Lesson>) {
             ) {
                 Image(
                     FontAwesome.Icon.faw_piggy_bank,
-                    colorFilter = ColorFilter.tint(Color.White),
+                    colorFilter = ColorFilter.tint(MaterialTheme.colorScheme.onPrimary),
                     modifier = Modifier
                         .size(115.dp, 100.dp)
                         .padding(top = 50.dp)
@@ -62,7 +62,7 @@ fun TrackScreen(navController: NavController, lessons: List<Lesson>) {
                 Text(
                     text = "Aprender",
                     fontSize = 22.sp,
-                    color = Color.White,
+                    color = MaterialTheme.colorScheme.onPrimary,
                     fontWeight = FontWeight.Bold,
                     modifier = Modifier.padding(top = 16.dp)
                 )
@@ -80,9 +80,9 @@ fun TrackScreen(navController: NavController, lessons: List<Lesson>) {
                             .fillMaxWidth()
                             .padding(bottom = 16.dp)
                             .padding(top = if (index == 0) 16.dp else 0.dp),
-                        colors = CardDefaults.cardColors(containerColor = Color.White),
+                        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainerHigh),
                         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
-                        border = BorderStroke(width = 1.dp, Color.White)
+                        border = BorderStroke(width = 1.dp, MaterialTheme.colorScheme.surfaceContainerLow)
                     ) {
                         Column(modifier = Modifier.padding(16.dp)) {
                             Row(
@@ -93,13 +93,13 @@ fun TrackScreen(navController: NavController, lessons: List<Lesson>) {
                                     Text(
                                         text = lesson.name,
                                         style = MaterialTheme.typography.titleLarge,
-                                        color = Color.Black,
+                                        color = MaterialTheme.colorScheme.onSurface,
                                         textDecoration = if (completedStates[index]) TextDecoration.LineThrough else TextDecoration.None
                                     )
                                     Text(
                                         text = lesson.description,
                                         style = MaterialTheme.typography.bodyMedium,
-                                        color = Color.Black,
+                                        color = MaterialTheme.colorScheme.onSurface,
                                         textDecoration = if (completedStates[index]) TextDecoration.LineThrough else TextDecoration.None
                                     )
                                 }
@@ -111,8 +111,8 @@ fun TrackScreen(navController: NavController, lessons: List<Lesson>) {
                                         completedStates[index] = checked
                                     },
                                     colors = CheckboxDefaults.colors(
-                                        checkedColor = colorResource(id = R.color.teal_700),
-                                        uncheckedColor = Color.Gray
+                                        checkedColor = MaterialTheme.colorScheme.secondary ,
+                                        uncheckedColor = MaterialTheme.colorScheme.secondary
                                     )
                                 )
                             }
@@ -129,7 +129,7 @@ fun TrackScreen(navController: NavController, lessons: List<Lesson>) {
                                         MaterialTheme.colorScheme.primary
                                     )
                                 ) {
-                                    Text("Go", color = Color.White)
+                                    Text("Começar", color = MaterialTheme.colorScheme.onPrimary)
                                 }
                             }
                         }
