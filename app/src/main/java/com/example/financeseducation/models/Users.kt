@@ -7,5 +7,7 @@ import androidx.room.PrimaryKey
 data class Users(
     @PrimaryKey(true) var id: Long = 0,
     var nome: String = "",
+    var income: Double = 0.0,
+    var expenses: Double = 0.0,
     var createdAt: Long = System.currentTimeMillis()
 )

@@ -12,6 +12,10 @@ class UsersRepository(context: Context) {
         return db.save(users)
     }
 
+    fun saveIncomeAndExpenses(users: Users): Int {
+        return db.saveIncomeAndExpenses(users)
+    }
+
     fun showName(): Users {
         return db.showName()
     }
